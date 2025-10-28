@@ -93,7 +93,7 @@ def save_character(character, filename):
     if not (can_write_dir or can_write_file):
         return False
 
-    f = open(filename, "w")
+    f = open(filename, "w", encoding="utf-8")
     f.write(f"Character Name: {character['name']}\n\n")
     f.write(f"Class: {character['class']}\n\n")
     f.write(f"Level: {character['level']}\n\n")
@@ -116,7 +116,7 @@ def load_character(filename):
     """
     if not os.path.isfile(filename):
         return None
-    f = open(filename, "r")
+    f = open(filename, "r", encoding="utf-8")
     raw = f.readlines()
     f.close()
     lines = [ln.strip() for ln in raw if ln.strip() != ""]
